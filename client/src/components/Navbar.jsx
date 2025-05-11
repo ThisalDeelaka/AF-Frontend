@@ -30,7 +30,7 @@ const Navbar = () => {
             <Moon className="h-6 w-6 text-primary animate-pulse-slow" />
           </div>
           <h1 className="text-xl font-bold text-white">
-            GlobeTrotter<span className="text-primary">.</span>
+            PlanetPass<span className="text-primary">.</span>
           </h1>
         </Link>
         
