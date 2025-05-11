@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getCountryByCode } from "@/lib/api";
+import { getCountryByCode } from "../lib/api";
 import { getFavoriteCountries, removeFavoriteCountry } from "@/lib/storage";
 import CountryCard from "@/components/CountryCard";
 import ErrorMessage from "@/components/ErrorMessage";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchAllCountries, getCountryImage, getCountryMapImage } from "@/lib/api";
+import { fetchAllCountries, getCountryImage, getCountryMapImage } from "../lib/api";
 import { getAllPuzzleProgress } from "@/lib/storage";
 import ErrorMessage from "@/components/ErrorMessage";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

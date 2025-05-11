@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { fetchAllCountries, searchCountriesByName, fetchCountriesByRegion, fetchCountriesByCapital } from "@/lib/api";
+import { fetchAllCountries, searchCountriesByName, fetchCountriesByRegion, fetchCountriesByCapital } from "../lib/api";
 import SearchBar from "@/components/SearchBar";
 import CountryGrid from "@/components/CountryGrid";
 import ErrorMessage from "@/components/ErrorMessage";

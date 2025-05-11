@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getCountryByCode, getCountryImage } from "@/lib/api";
+import { getCountryByCode, getCountryImage } from "../lib/api";
 import WeatherCard from "@/components/WeatherCard";
 import NewsList from "@/components/NewsList";
 import PuzzleGame from "@/components/PuzzleGame";

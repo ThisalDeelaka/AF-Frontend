@@ -1,11 +1,8 @@
-
-import { Country, NewsArticle, Weather, ApiError } from "@/types";
-
 const COUNTRIES_API_BASE = "https://restcountries.com/v3.1";
-const WEATHER_API_KEY = "4d8fb5b93d4af21d66a2948710284366"; // OpenWeatherMap free API key
-const NEWS_API_KEY = "d6d3c2ac1b614c05bbbf3032e3823654"; // NewsAPI free key
+const WEATHER_API_KEY = "4d8fb5b93d4af21d66a2948710284366"; 
+const NEWS_API_KEY = "951bde83179746a489ae25b66581d5d1"; 
 
-export async function fetchAllCountries(): Promise<Country[]> {
+export async function fetchAllCountries() {
   try {
     const response = await fetch(`${COUNTRIES_API_BASE}/all`);
     if (!response.ok) {
@@ -14,11 +11,11 @@ export async function fetchAllCountries(): Promise<Country[]> {
     return await response.json();
   } catch (error) {
     console.error("Failed to fetch countries:", error);
-    throw { message: "Failed to load countries" } as ApiError;
+    throw { message: "Failed to load countries" };
   }
 }
 
-export async function searchCountriesByName(name: string): Promise<Country[]> {
+export async function searchCountriesByName(name) {
   try {
     const response = await fetch(`${COUNTRIES_API_BASE}/name/${name}`);
     if (!response.ok) {
@@ -30,14 +27,14 @@ export async function searchCountriesByName(name: string): Promise<Country[]> {
     return await response.json();
   } catch (error) {
     console.error("Failed to search countries:", error);
-    if ((error as any).message?.includes('404')) {
+    if (error.message?.includes('404')) {
       return [];
     }
-    throw { message: "Failed to search countries" } as ApiError;
+    throw { message: "Failed to search countries" };
   }
 }
 
-export async function getCountryByCode(code: string): Promise<Country | null> {
+export async function getCountryByCode(code) {
   try {
     const response = await fetch(`${COUNTRIES_API_BASE}/alpha/${code}`);
     if (!response.ok) {
@@ -47,11 +44,11 @@ export async function getCountryByCode(code: string): Promise<Country | null> {
     return data[0] || null;
   } catch (error) {
     console.error(`Failed to fetch country with code ${code}:`, error);
-    throw { message: `Failed to load country details for ${code}` } as ApiError;
+    throw { message: `Failed to load country details for ${code}` };
   }
 }
 
-export async function fetchCountriesByRegion(region: string): Promise<Country[]> {
+export async function fetchCountriesByRegion(region) {
   try {
     const response = await fetch(`${COUNTRIES_API_BASE}/region/${region}`);
     if (!response.ok) {
@@ -60,11 +57,11 @@ export async function fetchCountriesByRegion(region: string): Promise<Country[]>
     return await response.json();
   } catch (error) {
     console.error(`Failed to fetch countries by region ${region}:`, error);
-    throw { message: `Failed to load countries in ${region}` } as ApiError;
+    throw { message: `Failed to load countries in ${region}` };
   }
 }
 
-export async function fetchCountriesByCapital(capital: string): Promise<Country[]> {
+export async function fetchCountriesByCapital(capital) {
   try {
     const response = await fetch(`${COUNTRIES_API_BASE}/capital/${capital}`);
     if (!response.ok) {
@@ -76,14 +73,14 @@ export async function fetchCountriesByCapital(capital: string): Promise<Country[
     return await response.json();
   } catch (error) {
     console.error(`Failed to fetch countries by capital ${capital}:`, error);
-    if ((error as any).message?.includes('404')) {
+    if (error.message?.includes('404')) {
       return [];
     }
-    throw { message: `Failed to load countries with capital ${capital}` } as ApiError;
+    throw { message: `Failed to load countries with capital ${capital}` };
   }
 }
 
-export async function getWeatherForCity(city: string): Promise<Weather> {
+export async function getWeatherForCity(city) {
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${WEATHER_API_KEY}`
@@ -94,11 +91,11 @@ export async function getWeatherForCity(city: string): Promise<Weather> {
     return await response.json();
   } catch (error) {
     console.error(`Failed to fetch weather for ${city}:`, error);
-    throw { message: `Failed to load weather for ${city}` } as ApiError;
+    throw { message: `Failed to load weather for ${city}` };
   }
 }
 
-export async function getNewsForCountry(countryCode: string): Promise<NewsArticle[]> {
+export async function getNewsForCountry(countryCode) {
   try {
     const response = await fetch(
       `https://newsapi.org/v2/top-headlines?country=${countryCode.toLowerCase()}&apiKey=${NEWS_API_KEY}`
@@ -110,13 +107,13 @@ export async function getNewsForCountry(countryCode: string): Promise<NewsArticl
     return data.articles || [];
   } catch (error) {
     console.error(`Failed to fetch news for ${countryCode}:`, error);
-    throw { message: `Failed to load news for this country` } as ApiError;
+    throw { message: `Failed to load news for this country` };
   }
 }
 
-// Placeholder images for countries when we need images for the puzzle game
-export const getCountryImage = (countryCode: string): string => {
-  // Real app would have actual landmarks, using placeholders for now
+
+export const getCountryImage = (countryCode) => {
+  
   const placeholders = [
     "https://images.unsplash.com/photo-1472396961693-142e6e269027",
     "https://images.unsplash.com/photo-1433086966358-54859d0ed716",
@@ -134,15 +131,14 @@ export const getCountryImage = (countryCode: string): string => {
     "https://images.unsplash.com/photo-1517022812141-23620dba5c23"
   ];
   
-  // Deterministic selection based on country code to always get the same image
+
   const index = countryCode.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % placeholders.length;
   return placeholders[index];
 };
 
-// Get country map image using open-source map tiles
-export const getCountryMapImage = (countryCode: string): string => {
-  // Use Static Maps API for country maps
-  // This is a placeholder approach - real implementation would use an actual static maps API with proper API key
+
+export const getCountryMapImage = (countryCode) => {
+ 
   const mapPlaceholders = [
     "https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce", // Map 1
     "https://images.unsplash.com/photo-1604357209793-fca5dca89f97", // Map 2

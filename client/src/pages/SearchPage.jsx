@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { searchCountriesByName, fetchCountriesByRegion, fetchCountriesByCapital } from "@/lib/api";
+import { searchCountriesByName, fetchCountriesByRegion, fetchCountriesByCapital } from "../lib/api";
 import CountryCard from "@/components/CountryCard";
 import ErrorMessage from "@/components/ErrorMessage";
 

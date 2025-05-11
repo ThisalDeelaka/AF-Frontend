@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchAllCountries } from "@/lib/api";
+import { fetchAllCountries } from "../lib/api";
 import CountryCard from "../components/CountryCard";
 import ErrorMessage from "@/components/ErrorMessage";
 import { ArrowRight, Globe, Map, Puzzle } from "lucide-react";
