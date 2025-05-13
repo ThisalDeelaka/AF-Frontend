@@ -1,6 +1,6 @@
-const COUNTRIES_API_BASE = "https://restcountries.com/v3.1";
-const WEATHER_API_KEY = "4d8fb5b93d4af21d66a2948710284366"; 
-const NEWS_API_KEY = "951bde83179746a489ae25b66581d5d1"; 
+const COUNTRIES_API_BASE = import.meta.env.VITE_COUNTRIES_API_BASE;
+const WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+const NEWS_API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 export async function fetchAllCountries() {
   try {
