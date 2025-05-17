@@ -25,9 +25,9 @@ export default defineConfig({
     transformMode: {
       web: [/\.[jt]sx?$/],
     },
-    // 👇 ADD THIS!
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
+    // This alias config is not needed here since it's already at the top level.
+    // alias: {
+    //   '@': path.resolve(__dirname, 'src'),
+    // },
   },
 });

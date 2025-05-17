@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +12,7 @@ import FavoritesPage from "./pages/FavoritesPage";
 import SearchPage from "./pages/SearchPage";
 import GlobePage from "./pages/GlobePage";
 import NotFound from "@/pages/NotFound";
+import AccessibilityTaskbar from "./context/AccessibilityTaskbar"; 
 
 const queryClient = new QueryClient();
 
@@ -35,6 +35,9 @@ const App = () => (
           {/* Catch-all route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+
+        {/* ✅ Add AccessibilityTaskbar here so it's always present */}
+        <AccessibilityTaskbar />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
