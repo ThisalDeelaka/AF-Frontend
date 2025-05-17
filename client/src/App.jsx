@@ -36,7 +36,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
 
-        {/* ✅ Add AccessibilityTaskbar here so it's always present */}
+        {/*AccessibilityTaskbar*/}
         <AccessibilityTaskbar />
       </BrowserRouter>
     </TooltipProvider>
