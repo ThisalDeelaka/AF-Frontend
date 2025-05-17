@@ -65,19 +65,11 @@ const AccessibilityTaskbar = () => {
       exec('Contrast Reset', () => setContrast('default'));
     } else if (cmd.includes('reset')) {
       exec('Settings Reset', resetSettings);
-    } else if (cmd === 'go to login') {
-      exec('Navigating to explore', () => navigate('/explore'));
     } else if (cmd === 'go to explore') {
-      exec('Navigating to favorites', () => navigate('/favorites'));
+      exec('Navigating to explore', () => navigate('/explore'));
     } else if (cmd === 'go to favorite') {
-      exec('Navigating to Restaurants', () => navigate('/restaurants'));
-    } else if (cmd === 'go to collection') {
-      exec('Navigating to Collection', () => navigate('/collection'));
-    } else if (cmd === 'go to home') {
-      exec('Navigating to Home', () => navigate('/'));
-    } else if (cmd === 'go to orders') {
-      exec('Navigating to Orders', () => navigate('/my-orders'));
-    }
+      exec('Navigating to favorites', () => navigate('/favorites'));
+    } 
   }, [transcript, navigate]);
 
   // — Visual settings effects —
