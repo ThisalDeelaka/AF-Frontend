@@ -66,10 +66,10 @@ const AccessibilityTaskbar = () => {
     } else if (cmd.includes('reset')) {
       exec('Settings Reset', resetSettings);
     } else if (cmd === 'go to login') {
-      exec('Navigating to Login', () => navigate('/login'));
-    } else if (cmd === 'go to cart') {
-      exec('Navigating to Cart', () => navigate('/cart'));
-    } else if (cmd === 'go to restaurants') {
+      exec('Navigating to explore', () => navigate('/explore'));
+    } else if (cmd === 'go to explore') {
+      exec('Navigating to favorites', () => navigate('/favorites'));
+    } else if (cmd === 'go to favorite') {
       exec('Navigating to Restaurants', () => navigate('/restaurants'));
     } else if (cmd === 'go to collection') {
       exec('Navigating to Collection', () => navigate('/collection'));
