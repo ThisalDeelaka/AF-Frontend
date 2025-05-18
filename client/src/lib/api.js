@@ -98,11 +98,18 @@ export async function getWeatherForCity(city) {
 export async function getNewsForCountry(countryCode) {
   try {
     const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${countryCode.toLowerCase()}&apiKey=${NEWS_API_KEY}`
+      `https://newsapi.org/v2/top-headlines?country=${countryCode.toLowerCase()}&apiKey=${NEWS_API_KEY}`,
+      {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (PlanetPass/1.0)',
+        },
+      }
     );
+
     if (!response.ok) {
       throw new Error(`Error fetching news: ${response.status}`);
     }
+
     const data = await response.json();
     return data.articles || [];
   } catch (error) {
@@ -110,6 +117,7 @@ export async function getNewsForCountry(countryCode) {
     throw { message: `Failed to load news for this country` };
   }
 }
+
 
 
 export const getCountryImage = (countryCode) => {
