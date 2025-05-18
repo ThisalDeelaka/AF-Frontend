@@ -1,18 +1,29 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(__dirname, 'public/_redirects'),
+          dest: '.', // Copy to root of dist/
+        },
+      ],
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  publicDir: 'public', // Ensure Vite copies public/ (including _redirects) to dist/
+  publicDir: 'public', // Copy public files like favicon, images, etc.
   build: {
     rollupOptions: {
-      input: './index.html', // Makes sure index.html is treated as the entry
+      input: './index.html',
     },
   },
   test: {
