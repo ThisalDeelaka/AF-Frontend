@@ -91,3 +91,34 @@ The application fetches data from several endpoints of the following APIs:
 * Users can play a jigsaw puzzle game with images of country flags.
 * The game randomly cuts the flag image into pieces and allows users to drag and drop pieces to complete the puzzle.
 
+###  Testing with Vitest & Deployment on Render
+
+This project uses [**Vitest**](https://vitest.dev/) for unit testing, and it's deployed on [**Render**](https://render.com) at:
+🔗 **[https://af-frontend-2i75.onrender.com](https://af-frontend-2i75.onrender.com)**
+
+#### Setting Up Testing
+
+1. Install the testing libraries:
+
+   ```bash
+   npm install -D vitest @testing-library/react @testing-library/jest-dom
+   ```
+
+2. Add the following to your `package.json`:
+
+   ```json
+   "scripts": {
+     "test": "vitest run",
+     "test:watch": "vitest watch"
+   }
+   ```
+
+3. Create test files with the `.test.jsx` or `.test.js` extension, and write tests using `@testing-library/react`.
+
+4. Run tests using:
+
+   ```bash
+   npm run test
+   ```
+
+---
