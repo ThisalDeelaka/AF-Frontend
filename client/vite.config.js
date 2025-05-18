@@ -9,6 +9,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
+  publicDir: 'public', // Ensure Vite copies public/ (including _redirects) to dist/
+  build: {
+    rollupOptions: {
+      input: './index.html', // Makes sure index.html is treated as the entry
+    },
+  },
   test: {
     globals: true,
     environment: 'jsdom',
@@ -25,9 +31,5 @@ export default defineConfig({
     transformMode: {
       web: [/\.[jt]sx?$/],
     },
-    // This alias config is not needed here since it's already at the top level.
-    // alias: {
-    //   '@': path.resolve(__dirname, 'src'),
-    // },
   },
 });
